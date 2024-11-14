@@ -16,6 +16,8 @@ import {
   ViewProps,
 } from 'react-native';
 
+import type { LayoutChangeEvent } from 'react-native'
+
 import styles from './styles';
 import {
   useThumbFollower,
@@ -141,7 +143,7 @@ const Slider: React.FC<SliderProps> = ({
 
   const handleContainerLayout = useWidthLayout(containerWidthRef, updateThumbs);
   const handleThumbLayout = useCallback(
-    ({nativeEvent}) => {
+    ({nativeEvent}: LayoutChangeEvent) => {
       const {
         layout: {width},
       } = nativeEvent;
