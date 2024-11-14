@@ -10,6 +10,7 @@ import {Animated, I18nManager} from 'react-native';
 import {clamp} from './helpers';
 import styles from './styles';
 import FollowerContainer from './LabelContainer';
+import type { LayoutChangeEvent } from 'react-native'
 
 /**
  * low and high state variables are fallbacks for props (props are not required).
@@ -69,7 +70,7 @@ export const useWidthLayout = (
   callback?: (width: number) => void,
 ) => {
   return useCallback(
-    ({nativeEvent}) => {
+    ({nativeEvent}: LayoutChangeEvent) => {
       const {
         layout: {width},
       } = nativeEvent;
@@ -194,7 +195,7 @@ export const useSelectedRail = (
  */
 export const useLabelContainerProps = (floating: boolean) => {
   const [labelContainerHeight, setLabelContainerHeight] = useState(0);
-  const onLayout = useCallback(({nativeEvent}) => {
+  const onLayout = useCallback(({nativeEvent}: LayoutChangeEvent) => {
     const {
       layout: {height},
     } = nativeEvent;
