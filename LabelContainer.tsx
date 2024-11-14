@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { View } from 'react-native';
 
-port type { ViewProps } from 'react-native';
+import type { ViewProps } from 'react-native';
 
 class LabelContainer extends PureComponent<
   { renderContent: (value: number) => React.ReactNode } & ViewProps
